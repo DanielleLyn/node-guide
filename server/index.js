@@ -65,10 +65,15 @@ app.delete('/api/delete_endpoint', (req, res) => {
 
     // get the index of the value to be updated
     let index = array.findIndex((e) => e == delete_value)
+
+    // check to make sure we are getting a valid index
     console.log(index);
+    
+    //if the item exists then splice it out
     if(index !== -1){
     array.splice(index, 1);
     }
+    // send the update array
     res.status(200).send(array);
 })
 
